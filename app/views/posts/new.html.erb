@@ -1,10 +1,13 @@
-<h3> CREATE POST </h3>
-<%= form_for @post do |f| %>
-  <%= f.label :title %>:
-  <%= f.text_field :title %><br />
+<h3> REGISTER </h3>
+<%= form_for @user do |f| %>
+  <%= f.label :username %>:
+  <%= f.text_field :username %><br />
 
-  <%= f.label :link %>:
-  <%= f.text_field :link %><br />
+  <%= f.label :email %>:
+  <%= f.text_field :email %><br />
+
+  <%= f.label :password %>:
+  <%= f.password_field :password %><br />
 
   <%= f.submit %>
 <% end %>

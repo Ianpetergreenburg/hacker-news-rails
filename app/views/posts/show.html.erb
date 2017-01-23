@@ -1,0 +1,17 @@
+<div class="post-link"><%= link_to @post.title, @post.link %></div>
+
+<%= form_for @comment do |f| %>
+  <%= f.label 'Comment' %>:
+  <%= f.text_field :body %><br />
+
+  <%= f.submit %>
+<% end %>
+
+
+<table>
+  <% @post.comments.each do |comment| %>
+    <tr>
+      <%= render partial: "comments", locals: { comment: comment } %>
+    </tr>
+  <% end %>
+</table>
