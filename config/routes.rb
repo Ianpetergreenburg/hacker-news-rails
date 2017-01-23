@@ -5,10 +5,8 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#login'
   get '/logout' => 'sessions#logout'
 
-  resources :users do
-    resource :posts, only: [:new]
-  end
-  resources :posts, except: [:new]
+  resources :users
+  resources :posts
   resources :comments
   resources :votes, only: [:create, :destroy]
 end
