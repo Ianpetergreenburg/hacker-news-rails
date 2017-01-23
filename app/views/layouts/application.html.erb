@@ -9,7 +9,14 @@
   </head>
 
   <body>
+  <% if session[:user_id] %>
+    <%= User.find(session[:user_id]).username %>
+    <%= link_to "Logout", logout_path %>
+  <% else %>
+    <%= link_to "Login", login_path %>
     <%= link_to "Register", new_user_path %>
+  <% end %>
+    <%= link_to "Home", posts_path %>
     <%= yield %>
   </body>
 </html>
