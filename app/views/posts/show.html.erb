@@ -2,7 +2,7 @@
 
 <%= render partial: "comments/form", locals: { commentable: @post, comment: Comment.new} %>
 
-<table border='1'>
+<table style='background-color: green'>
   <% @post.comments.each do |comment| %>
     <tr>
       <td>

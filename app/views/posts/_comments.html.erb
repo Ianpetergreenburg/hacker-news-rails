@@ -1,4 +1,4 @@
-<table>
+<table style='background-color: yellow'>
   <tr>
     <td>
      <%= comment.body %>
@@ -7,8 +7,10 @@
       <%= link_to 'comment', new_comment_path(commentable_id: comment.id) %>
      </td>
    </tr>
-  <% @comment.comments.each do |comment| %>
+  <% comment.comments.each do |comment| %>
     <tr>
+      <td>
+      </td>
       <td>
       <%= render partial: "comments", locals: { comment: comment } %>
       </td>
