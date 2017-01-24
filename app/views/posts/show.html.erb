@@ -1,12 +1,17 @@
 <div class="post-link"><%= link_to @post.title, @post.link %></div>
 
 <%= form_for @comment do |f| %>
-  <%= f.label 'Comment' %>:
-  <%= f.text_field :body %><br />
+  <div>
+  <%= hidden_field_tag :commentable_type, @commentable.class %>
+  <%= hidden_field_tag :commentable_id, @commentable.id %>
 
-  <%= f.submit %>
+    <%= f.label :body %><br />
+    <%= f.text_area :body %>
+  </div>
+  <p><%= f.submit "Submit" %></p>
 <% end %>
 
+<%= @post.comments[0] %>
 
 <table>
   <% @post.comments.each do |comment| %>

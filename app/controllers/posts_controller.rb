@@ -11,7 +11,7 @@ class PostsController < ApplicationController
 
   def show
     @comment = Comment.new
-    @post = get_post
+    @commentable = @post = get_post
   end
 
   def create
