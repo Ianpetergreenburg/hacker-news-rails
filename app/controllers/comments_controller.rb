@@ -6,11 +6,11 @@ class CommentsController < ApplicationController
   end
 
   def new
-
+    @comment = Comment.find(params[:commentable_id])
   end
 
   def show
-
+    redirect_to posts_path
   end
 
   def create
@@ -18,7 +18,7 @@ class CommentsController < ApplicationController
     @comment.user = session_user
     @comment.update_attributes(commentable_params)
     @comment.save
-    redirect_to posts_path
+    redirect_to @comment.post
   end
 
   def destroy

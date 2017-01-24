@@ -1,22 +1,13 @@
 <div class="post-link"><%= link_to @post.title, @post.link %></div>
 
-<%= form_for @comment do |f| %>
-  <div>
-  <%= hidden_field_tag :commentable_type, @commentable.class %>
-  <%= hidden_field_tag :commentable_id, @commentable.id %>
+<%= render partial: "comments/form", locals: { commentable: @post, comment: Comment.new} %>
 
-    <%= f.label :body %><br />
-    <%= f.text_area :body %>
-  </div>
-  <p><%= f.submit "Submit" %></p>
-<% end %>
-
-<%= @post.comments[0] %>
-
-<table>
+<table border='1'>
   <% @post.comments.each do |comment| %>
     <tr>
+      <td>
       <%= render partial: "comments", locals: { comment: comment } %>
+      </td>
     </tr>
   <% end %>
 </table>

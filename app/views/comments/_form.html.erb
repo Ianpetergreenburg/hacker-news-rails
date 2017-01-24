@@ -1,0 +1,10 @@
+<%= form_for comment do |f| %>
+  <div>
+  <%= hidden_field_tag :commentable_type, commentable.class %>
+  <%= hidden_field_tag :commentable_id, commentable.id %>
+
+    <%= f.label :body %><br />
+    <%= f.text_area :body %>
+  </div>
+  <p><%= f.submit "Submit" %></p>
+<% end %>

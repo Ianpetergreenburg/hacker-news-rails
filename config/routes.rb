@@ -6,9 +6,7 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#logout'
 
   resources :users
-  resources :posts do
-    resources :comments, only: [:create, :new]
-  end
-  resources :comments
+  resources :posts
+  resources :comments, only: [:create, :new, :edit, :delete]
   resources :votes, only: [:create, :destroy]
 end

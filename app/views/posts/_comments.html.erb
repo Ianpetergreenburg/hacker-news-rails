@@ -1,3 +1,17 @@
 <table>
- <%= comment.body %>
+  <tr>
+    <td>
+     <%= comment.body %>
+     </td>
+     <td>
+      <%= link_to 'comment', new_comment_path(commentable_id: comment.id) %>
+     </td>
+   </tr>
+  <% @comment.comments.each do |comment| %>
+    <tr>
+      <td>
+      <%= render partial: "comments", locals: { comment: comment } %>
+      </td>
+    </tr>
+  <% end %>
 </table>
