@@ -2,8 +2,8 @@ require 'rails_helper'
 
 describe PostsController do
   describe '#index' do
-    let (:user) { User.create(username: 'user', email: 'email@me.com', password: 'password')}
-    let(:post) { Post.create(title: 'title', link: 'content', user_id: user.id) }
+    let (:user) { FactoryGirl.create(:user) }
+    let(:post) { FactoryGirl.create(:post) }
 
     it 'should go to an index' do
       post.save
